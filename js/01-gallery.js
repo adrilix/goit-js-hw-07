@@ -20,10 +20,10 @@ const galleryImage = galleryItems.map(({ preview, original, description })=>{
         <img
         class="gallery__image"
         src="${preview}"
-        data-sours="${original}"
+        data-source="${original}"
         alt="${description}"
         />
-        </a>       
+        </a>
     </div>
     `;
     return photoEl;
@@ -32,5 +32,21 @@ const galleryImage = galleryItems.map(({ preview, original, description })=>{
 const stringGallery = galleryImage.join('');
 divGallery.innerHTML = stringGallery;
 
-console.log(galleryImage.join(''));
+console.log(galleryItems);
+console.log(galleryImage);
+console.log(stringGallery);
+
+divGallery.addEventListener('click', onDivGalleryClick);
+
+function onDivGalleryClick(event) {
+    event.preventDefolt();
+    if (!event.target.classList.contains('gallery__image')) {
+        return;
+    };
+
+    // const instance = basicLightbox.create(
+    //     <img src="${event.target.dataset.source}" width="800" height="600"/>
+    // );
+}
+
 
